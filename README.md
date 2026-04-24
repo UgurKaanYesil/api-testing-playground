@@ -41,6 +41,10 @@ To run a single test method:
 mvn clean test -Dtest=PostsApiTest#getSinglePost_shouldReturn200AndValidBody
 ```
 
+## Notes / Learnings
+
+- **REST Assured + Jackson:** During Test 3 (POST request), I encountered a serialization error. REST Assured 5.x doesn't bundle Jackson for JSON conversion by default. Adding `jackson-databind` dependency resolved it — this library handles the `Map` → JSON conversion in the request body.
+
 ## Note
 
 This repo is actively evolving. In the next iteration, the raw `Map` structure will be replaced with POJO models and the tests will be refactored on top of an abstract base class.
